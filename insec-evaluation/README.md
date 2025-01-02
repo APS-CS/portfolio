@@ -24,3 +24,8 @@ The objective was to evaluate and improve the organization's information securit
 * Conducting a structured information security maturity assessment using internationally recognized standards and methodologies.
 * Translating technical analysis into clear, strategic communication tailored to senior management.
 * Developing and articulating a practical improvement roadmap, balancing compliance and operational priorities.
+
+
+## Recognition: Best Presentation of the Course
+As part of the course activities our group's presentation was evaluated and selected as the best by both the class and the course coordinator. The selection was based on our ability to effectively communicate key insights, provide clear recommendations, and deliver a well-structured and engaging presentation:
+[Post in LinkedIn](https://www.linkedin.com/posts/ugcPost-7244002146688376835-NglH?)
