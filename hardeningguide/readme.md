@@ -1,2 +1,5 @@
 IN PROGRESS
-ETA January, week 5
+ETA June
+
+
+Comperhensive hardening guide for casual Windows users
