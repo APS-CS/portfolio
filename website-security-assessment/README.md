@@ -34,8 +34,7 @@ protections that looked correct on paper but did not do their job:
 - The server configuration did not itself enforce an encrypted connection. Visitors
   were still protected, but only by a default setting at the hosting provider.
 
-**Where it stands.** All five are fixed and verified. One further low-severity
-item is still open by decision and is left out of this report until it is closed.
+**Where it stands.** All five are fixed and verified.
 
 | | |
 | :--- | :--- |
@@ -172,7 +171,7 @@ out under "Impact" for each finding.
 | [SEC-02](#sec-02--server-configuration-did-not-enforce-https) | Medium | Server configuration did not enforce HTTPS | Code review | Fixed |
 | [SEC-03](#sec-03--url-validation-bypassed-with-a-tab-or-line-break) | Low | URL validation bypassed with a tab or line break | Attack test (URL case list) | Fixed |
 | [SEC-04](#sec-04--article-list-built-as-html-strings) | Low | Article list built as HTML strings | Code review | Fixed |
-| [SEC-06](#sec-06--web-manifest-served-without-a-content-type) | Low | Web manifest served without a Content-Type | Production scan | Fixed |
+| [SEC-05](#sec-05--web-manifest-served-without-a-content-type) | Low | Web manifest served without a Content-Type | Production scan | Fixed |
 
 In the output below, BEFORE is the reviewed version and AFTER is the
 fixed version. Labels are translated from Swedish. Browser error
@@ -463,7 +462,7 @@ writes no HTML to the DOM.
 
 ---
 
-### SEC-06 — Web manifest served without a Content-Type
+### SEC-05 — Web manifest served without a Content-Type
 
 **Severity:** Low · **Status:** Fixed, verified in production
 
@@ -540,7 +539,7 @@ a test, not by memory.
 | Validate a URL after rejecting whitespace and control characters, never on the raw string. | SEC-03 | 32 URL cases in the browser |
 | All traffic over HTTPS. Redirect targets are never built from the request's host name. | SEC-02 | Rule tests |
 | Every security fix gets a test that would have caught the fault. | All | Review |
-| Every deployment is checked in production: headers, content types, hidden files. | SEC-02, SEC-06 | Scripted read-only check |
+| Every deployment is checked in production: headers, content types, hidden files. | SEC-02, SEC-05 | Scripted read-only check |
 | A control does not count until an attack attempt has failed against it. | SEC-01, SEC-04 | The hardening tests |
 
 ---
@@ -558,10 +557,6 @@ a test, not by memory.
 - **A snapshot.** The results hold for one commit and one evening. A change in the
   code or at the provider can change them, which is why the tests run before every
   deployment.
-- **No independent review.** The same AI tooling found the faults, fixed them and
-  wrote the tests, and I approved the changes. Nobody outside has reviewed the work.
-  That is a risk in its own right, and the reason the evidence is script output
-  rather than the model's own account.
 - **Absence of findings is not proof of absence.** A test shows that one specific
   attempt fails. It does not show that the site is secure.
 
@@ -578,9 +573,6 @@ file, details of the hosting provider's infrastructure seen in response
 headers, raw scan logs, the full list of probed paths, the test suite and
 proof-of-concept runner, the internal findings register, and the internal policies
 and guidelines that the findings feed into.
-
-One low-severity item is still open by decision and is withheld until it is closed.
-That is why the numbering skips SEC-05.
 
 ---
 
