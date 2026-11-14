@@ -601,3 +601,30 @@ the site's own disclosure policy sets for anyone.
   what is still open are part of the result.
 * **Using AI tooling under control.** Hypotheses from a model, evidence from
   reproducible scripts, decisions and approval from a person.
+
+
+## Framework references
+
+D3FEND describes the defensive configuration; ATT&CK provides context for selected attacker behaviours. The results remain limited to the scope and conditions stated in this report.
+
+| Framework | Reference | Connection to this project |
+| :--- | :--- | :--- |
+| D3FEND | [D3-ACH · Application Configuration Hardening](https://d3fend.mitre.org/technique/d3f:ApplicationConfigurationHardening/) | CSP, disabled directory listing and restricted HTTP methods reduce permitted behaviour and exposure; see Verified without remark. Source-code fixes are not all classified as configuration hardening. |
+| ATT&CK | [T1552.001 · Credentials In Files](https://attack.mitre.org/techniques/T1552/001/) | Provides context for the review of repository history for passwords, keys and tokens. No secrets were reported; this was a review, not a demonstrated credential-theft incident. |
+
+DOM injection and URL-validation findings are not automatically equivalent to an ATT&CK technique. The existing OWASP testing references remain the more precise basis for those tests. Trusted Types is not equated with D3FEND Control Flow Integrity, and HTTPS is not equated with Encrypted Tunnels. These references do not assert complete ATT&CK prevention or detection coverage.
+
+### Related standards and frameworks
+
+These are thematic connections to the documented work, or prospective references where the project is incomplete. They do not imply that the original project was designed against these editions.
+
+| Reference | Relevant area | Project connection and evidence boundary |
+| :--- | :--- | :--- |
+| [OWASP ASVS 5.0.0](https://asvs.owasp.org/) and [OWASP WSTG](https://owasp.org/www-project-web-security-testing-guide/) | Application security requirements and test methods. | The report already references WSTG v4.2. ASVS is an additional reference for relating browser and configuration tests to requirements; no ASVS verification level or requirement-by-requirement assessment is claimed. |
+| [ISO/IEC 27002:2022](https://www.iso.org/standard/75652.html) | Technical security measures and verification of application protection. | The connection is the documented sequence of finding, correction and retest. ISO control-level coverage has not been assessed. |
+| [CIS Controls v8.1](https://www.cisecurity.org/controls/cis-controls-list) | Control 16: Application Software Security; Control 18: Penetration Testing. | Secure coding changes and scoped attack tests illustrate relevant activities. A single assessment does not establish a complete application-security or penetration-testing programme. |
+| [NIST CSF 2.0](https://csrc.nist.gov/pubs/cswp/29/the-nist-cybersecurity-framework-csf-20/final) | Identify and Protect. | The assessment identifies weaknesses and documents protective changes. Passing test cases is not proof that all relevant CSF outcomes are achieved. |
+
+ISO references are thematic; no clause-by-clause assessment has been performed. CIS references identify top-level Controls, not all underlying safeguards. Framework alignment is not certification or proof of compliance.
+
+*Reference review: 14 November 2026. MITRE mappings and the additional framework connections are project-level interpretations, not independently verified security coverage.*
