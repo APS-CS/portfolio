@@ -187,3 +187,31 @@ The reasoning is the transferable part — it is what demonstrates competence an
 ## Scope and disclaimer
 
 This is a personal lab and home network. No client data, client systems, or third-party networks are involved at any point. All offensive testing described here is performed against equipment I own, on a network I control.
+
+
+## Framework references
+
+The documented design relates to the following techniques. The project remains in progress; these references do not establish that every control is deployed or tested.
+
+| Framework | Reference | Connection to this project |
+| :--- | :--- | :--- |
+| D3FEND | [D3-BDI · Broadcast Domain Isolation](https://d3fend.mitre.org/technique/d3f:BroadcastDomainIsolation/) | VLANs separate broadcast domains; see Segmentation model. |
+| D3FEND | [D3-NTF · Network Traffic Filtering](https://d3fend.mitre.org/technique/d3f:NetworkTrafficFiltering/) and [D3-OTF · Outbound Traffic Filtering](https://d3fend.mitre.org/technique/d3f:OutboundTrafficFiltering/) | Inter-segment default-deny rules and restricted outbound traffic; see Firewall policy. |
+| D3FEND | [D3-ET · Encrypted Tunnels](https://d3fend.mitre.org/technique/d3f:EncryptedTunnels/) | WireGuard encapsulates network traffic in an encrypted tunnel; see Remote access. |
+| D3FEND | [D3-NTSA · Network Traffic Signature Analysis](https://d3fend.mitre.org/technique/d3f:NetworkTrafficSignatureAnalysis/) | Suricata compares traffic with signatures; see Intrusion detection. Alerting is distinct from blocking. |
+| ATT&CK | [T1046 · Network Service Discovery](https://attack.mitre.org/techniques/T1046/) | Host and service discovery is relevant to the segmentation tests described under Verification. |
+| ATT&CK | [T1021 · Remote Services](https://attack.mitre.org/techniques/T1021/) | Restricting access between segments reduces opportunities to use remote services for lateral movement. It does not prevent abuse over permitted paths. |
+
+### Related standards and frameworks
+
+These are thematic connections to the documented work, or prospective references where the project is incomplete. They do not imply that the original project was designed against these editions.
+
+| Reference | Relevant area | Project connection and evidence boundary |
+| :--- | :--- | :--- |
+| [ISO/IEC 27002:2022](https://www.iso.org/standard/75652.html) | Network security, network separation and access restrictions. | The segmentation model and firewall policy provide the connection; rollout and verification remain in progress. |
+| [CIS Controls v8.1](https://www.cisecurity.org/controls/cis-controls-list) | Control 12: Network Infrastructure Management; Control 13: Network Monitoring and Defense. | Documented VLAN design, traffic restrictions and Suricata monitoring. This does not establish implementation of every safeguard in either Control. |
+| [NIST CSF 2.0](https://csrc.nist.gov/pubs/cswp/29/the-nist-cybersecurity-framework-csf-20/final) | Protect and Detect. | Network boundaries support protection; Suricata supports detection. Planned blocking and SOC integration are not treated as operational capabilities. |
+
+ISO references are thematic; no clause-by-clause assessment has been performed. CIS references identify top-level Controls, not all underlying safeguards. Framework alignment is not certification or proof of compliance.
+
+*Reference review: 14 November 2026. MITRE mappings and the additional framework connections are project-level interpretations, not independently verified security coverage.*
