@@ -55,3 +55,30 @@ The goal is not just "agents that work" — it's agents that fail safely.
 - Classic infosec doctrine (segmentation, least privilege, need-to-know) maps onto autonomous agents almost unchanged.
 
 ---
+
+
+## Framework references
+
+The following references provide design and threat context. The public description does not establish how all agent boundaries are technically enforced.
+
+| Framework | Reference | Connection to this project |
+| :--- | :--- | :--- |
+| D3FEND | [D3-ACH · Application Configuration Hardening](https://d3fend.mitre.org/technique/d3f:ApplicationConfigurationHardening/) | Relevant to the described reduction of listening services and restriction of runtime capabilities. Configuration-level evidence would be needed for a verified mapping. |
+| ATT&CK | [T1005 · Data from Local System](https://attack.mitre.org/techniques/T1005/) | Relevant if a manipulated agent uses its file access to collect information outside its task. This is a threat scenario, not a reported incident. |
+| ATT&CK | [T1611 · Escape to Host](https://attack.mitre.org/techniques/T1611/) | Relevant to the isolated container runtime and its boundary with the host. It does not describe prompt injection itself. |
+
+Role instructions and reporting lines alone do not prove access isolation. A more detailed mapping would need the enforced permissions, data boundaries and boundary-test results. AI-specific manipulation should be assessed separately rather than assigned an approximate ATT&CK identifier.
+
+### Related standards and frameworks
+
+These are thematic connections to the documented work, or prospective references where the project is incomplete. They do not imply that the original project was designed against these editions.
+
+| Reference | Relevant area | Project connection and evidence boundary |
+| :--- | :--- | :--- |
+| [ISO/IEC 27002:2022](https://www.iso.org/standard/75652.html) | Access control and protection of information. | Role-specific tools, limited information access and intended separation provide design-level connections. Instructions alone do not demonstrate technical enforcement. |
+| [CIS Controls v8.1](https://www.cisecurity.org/controls/cis-controls-list) | Control 6: Access Control Management; Control 3: Data Protection. | Applicable to enforced agent permissions and handling of stored information. The public description does not establish all access checks or that the designed sanitisation layer is operational. |
+| [NIST CSF 2.0](https://csrc.nist.gov/pubs/cswp/29/the-nist-cybersecurity-framework-csf-20/final) | Govern and Protect. | Defined mandates relate to responsibilities; enforced permissions and data boundaries relate to protection. A detailed mapping needs configuration evidence and boundary tests. |
+
+ISO references are thematic; no clause-by-clause assessment has been performed. CIS references identify top-level Controls, not all underlying safeguards. Framework alignment is not certification or proof of compliance.
+
+*Reference review: 14 November 2026. MITRE mappings and the additional framework connections are project-level interpretations, not independently verified security coverage.*
