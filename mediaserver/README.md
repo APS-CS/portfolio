@@ -355,3 +355,31 @@ control of whatever, or whoever, caused the incident.
   would disprove it, and collecting data that survives the failure.
 * **Documenting trade-offs** — being able to explain what a control costs, not just
   that it's enabled, is what makes a security decision defensible to someone else.
+
+
+## Framework references
+
+These references connect the documented controls and threat model to D3FEND and ATT&CK. Configuration examples are not independent evidence of the current runtime state.
+
+| Framework | Reference | Connection to this project |
+| :--- | :--- | :--- |
+| D3FEND | [D3-ACH · Application Configuration Hardening](https://d3fend.mitre.org/technique/d3f:ApplicationConfigurationHardening/) | Non-root execution, capability removal and no-new-privileges; see Container hardening. |
+| D3FEND | [D3-ITF · Inbound Traffic Filtering](https://d3fend.mitre.org/technique/d3f:InboundTrafficFiltering/) | Source-restricted inbound access; see Network exposure. Docker port publication must also be considered, as noted in Container hardening. |
+| D3FEND | [D3-DENCR · Disk Encryption](https://d3fend.mitre.org/technique/d3f:DiskEncryption/) and [D3-SU · Software Update](https://d3fend.mitre.org/technique/d3f:SoftwareUpdate/) | LUKS and security updates; see Host hardening. Disk encryption does not protect unlocked data from a compromised running system. |
+| ATT&CK | [T1611 · Escape to Host](https://attack.mitre.org/techniques/T1611/) | Matches threat T2 and the reason for limiting container privileges and host access. No container-escape test is claimed. |
+| ATT&CK | [T1190 · Exploit Public-Facing Application](https://attack.mitre.org/techniques/T1190/) | Matches the conditional internet-exposure scenario in threat T3. The documented design deliberately avoids direct public exposure. |
+| ATT&CK | [T1486 · Data Encrypted for Impact](https://attack.mitre.org/techniques/T1486/) | Matches the ransomware scenario in threat T5. The read-only media mount limits writes through the service; it is not protection against every host-level attack. |
+
+### Related standards and frameworks
+
+These are thematic connections to the documented work, or prospective references where the project is incomplete. They do not imply that the original project was designed against these editions.
+
+| Reference | Relevant area | Project connection and evidence boundary |
+| :--- | :--- | :--- |
+| [ISO/IEC 27002:2022](https://www.iso.org/standard/75652.html) | Access control, cryptography and technical security measures. | Container restrictions, LUKS, host updates and audit logging provide concrete examples; operational effectiveness is not independently verified. |
+| [CIS Controls v8.1](https://www.cisecurity.org/controls/cis-controls-list) | Control 4: Secure Configuration of Enterprise Assets and Software; Control 3: Data Protection. | Non-root execution, restricted device access, read-only media and encrypted storage. These examples address parts of the Controls, not full organizational implementation. |
+| [NIST CSF 2.0](https://csrc.nist.gov/pubs/cswp/29/the-nist-cybersecurity-framework-csf-20/final) | Protect; Detect as a limited supporting area. | Hardening and access restrictions support Protect. Host logs can support Detect, but resource monitoring alone is not a validated threat-detection capability. Backup testing remains an open item. |
+
+ISO references are thematic; no clause-by-clause assessment has been performed. CIS references identify top-level Controls, not all underlying safeguards. Framework alignment is not certification or proof of compliance.
+
+*Reference review: 14 November 2026. MITRE mappings and the additional framework connections are project-level interpretations, not independently verified security coverage.*
