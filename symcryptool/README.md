@@ -9,6 +9,8 @@ Here’s a quick rundown of what it can do:
 - Decrypt Files: Restore encrypted files to their original state using the correct key
 - User-Friendly Commands: Easily specify files, keys, and actions (encrypt or decrypt)
 
+![File flow showing the same key used for encryption and decryption, with separate encrypted and decrypted copies and the original plaintext file retained.](images/file-encryption-flow-dark.svg)
+
 
 
 # Warnings and Considerations
