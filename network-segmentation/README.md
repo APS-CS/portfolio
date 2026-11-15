@@ -1,4 +1,4 @@
-# Segmented Home Network with OPNsense
+# Segmented Home Business Network with OPNsense
 
 > **Status:** In progress — hardware deployed, configuration underway.
 > Sections marked _Planned_ describe design decisions that are not yet implemented.
@@ -35,6 +35,8 @@ On a flat network every one of these shares a broadcast domain, which means a si
 ---
 
 ## Architecture
+
+![Target architecture showing five separate VLAN zones connected through a managed switch to OPNsense, with inter-zone and outbound filtering, Suricata detection, scoped WireGuard access and SSID-to-VLAN mapping. Rollout is in progress; the lab and IPS blocking are planned.](images/segmented-network-architecture-dark.svg)
 
 ```mermaid
 flowchart TB
