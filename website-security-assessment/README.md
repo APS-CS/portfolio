@@ -190,7 +190,7 @@ browsers that support it, the page refuses any HTML written to the DOM unless it
 passed through a named policy. The idea is that one small, reviewable function
 decides what HTML is acceptable.
 
-![The same Trusted Types proof of concept before and after the SEC-01 fix: untrusted HTML is rendered before the fix, while the removed global helper causes the same call to fail afterwards.](https://github.com/APS-CS/portfolio/blob/main/website-security-assessment/security-verification-dark.png)
+![The same Trusted Types proof of concept before and after the SEC-01 fix: untrusted HTML is rendered before the fix, while the removed global helper causes the same call to fail afterwards.](images/sec-01-security-verification-dark.svg)
 
 **The fault.** The policy function returned its input unchanged, and it was placed
 on `window`. Any code running in the page could call it and get arbitrary HTML
@@ -282,6 +282,8 @@ exercised live.
 correct host name over plain HTTP passed through unencrypted. HSTS only protects
 visitors who have already been to the site over HTTPS.
 
+![The hosting provider performs the live HTTPS redirect; the site-owned fallback was added and logic-tested but has not been exercised in production.](images/sec-02-https-protection-layers-dark.svg)
+
 **What was tested.** Three things, since no Apache was available locally.
 
 1. *The file.* Is there any rule that tests the protocol?
@@ -339,6 +341,8 @@ after every deployment.
 The check was made on the raw string. Browsers strip tabs and line breaks from a URL
 before parsing it, so `/<tab>/evil.example` passed the check and then became
 `//evil.example`.
+
+![The same tab-containing URL resolves to another origin before the fix and becomes a local fragment after validation rejects it.](images/sec-03-url-parsing-dark.svg)
 
 ```js
 // Before
@@ -420,6 +424,8 @@ written with `innerHTML`. Every field went through an escaping function. The
 protection therefore depended on no future change forgetting one escape call, and
 this pattern was the reason the global policy in SEC-01 existed at all.
 
+![Escaping and parsing HTML is replaced with creating elements and assigning textContent; the hostile-data test produces no injected elements or code execution in either version.](images/sec-04-safe-rendering-dark.svg)
+
 **What was tested.** Two questions. Can the pattern be exploited today? Is the
 pattern gone after the fix?
 
@@ -471,6 +477,8 @@ writes no HTML to the DOM.
 **The fault.** The hosting provider's web server did not recognise the
 `.webmanifest` file extension and sent the file with no `Content-Type`. The site
 also sends `X-Content-Type-Options: nosniff`, which tells the browser not to guess.
+
+![The production manifest response has status 200 in both versions; the successful deployment is verified by the added Content-Type application/manifest+json.](images/sec-05-production-content-type-dark.svg)
 
 **How it was found.** Only in production. The local test server had its own list of
 file types, and that list included the extension. The production scan fetched every
