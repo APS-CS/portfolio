@@ -31,6 +31,8 @@ belong here.
 
 ---
 
+![Overview of LAN and VPN access, host and container boundaries, and read-only media versus writable configuration.](/media-server-security-layers-dark.svg)
+
 ## Defence in depth
 
 The design assumes each layer will eventually fail, so no single control is load
