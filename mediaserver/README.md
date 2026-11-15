@@ -31,7 +31,7 @@ belong here.
 
 ---
 
-![Overview of LAN and VPN access, host and container boundaries, and read-only media versus writable configuration.]([/media-server-security-layers-dark.svg](https://github.com/APS-CS/portfolio/blob/main/mediaserver/media-server-security-layers-dark.png?raw=true))
+![Overview of LAN and VPN access, host and container boundaries, and read-only media versus writable configuration.](https://github.com/APS-CS/portfolio/blob/main/mediaserver/media-server-security-layers-dark.png)
 
 ## Defence in depth
 
