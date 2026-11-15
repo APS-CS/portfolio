@@ -190,6 +190,8 @@ browsers that support it, the page refuses any HTML written to the DOM unless it
 passed through a named policy. The idea is that one small, reviewable function
 decides what HTML is acceptable.
 
+![The same Trusted Types proof of concept before and after the SEC-01 fix: untrusted HTML is rendered before the fix, while the removed global helper causes the same call to fail afterwards.](/security-verification-dark.png)
+
 **The fault.** The policy function returned its input unchanged, and it was placed
 on `window`. Any code running in the page could call it and get arbitrary HTML
 approved.
