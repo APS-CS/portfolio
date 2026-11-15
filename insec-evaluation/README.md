@@ -9,6 +9,8 @@ The objective was to evaluate and improve the organization's information securit
 - Propose actionable recommendations to improve maturity, including a detailed plan for implementation and assigning responsibilities.
 - Highlight other critical areas for discussion with the management team regarding information security.
 
+![Overview of the PillMedtech course project: six maturity assessment areas inform improvement priorities, recommendations, implementation planning and responsibilities for a simulated management discussion.](images/management-review-to-plan-dark.svg)
+
 
 ## Deliverables
 * Analysis Framework: Based on ISO 27001 and MSB's ["Metodstödet"](https://metodstod-informationssakerhet.msb.se).
