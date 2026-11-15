@@ -18,6 +18,8 @@ Instead of one general-purpose assistant, the platform runs a structured organis
 
 Everything runs self-hosted on my own hardened server. Nothing about the setup depends on a third party hosting the agents.
 
+![Conceptual agent hierarchy showing role-scoped delegation and reporting, with operating and planned elements distinguished.](https://github.com/APS-CS/portfolio/blob/main/ai-cxo-agents/agent-roles-and-boundaries-dark.png)
+
 ## Why this is a security project
 
 An autonomous agent is, for all practical purposes, a user account that can be socially engineered. It reads untrusted input, it holds credentials, and it takes actions. That makes the interesting problem an **information security problem**, not an AI problem — and the design applies the same principles you'd apply to human staff and service accounts:
