@@ -1,4 +1,4 @@
-# 🤖 AI CXO Agents (OpenClaw)
+# AI CXO Agents (OpenClaw)
 
 > **Status:** In progress — built and documented incrementally
 
@@ -18,7 +18,7 @@ Instead of one general-purpose assistant, the platform runs a structured organis
 
 Everything runs self-hosted on my own hardened server. Nothing about the setup depends on a third party hosting the agents.
 
-![Conceptual agent hierarchy showing role-scoped delegation and reporting, with operating and planned elements distinguished.](https://github.com/APS-CS/portfolio/blob/main/ai-cxo-agents/agent-roles-and-boundaries-dark.png)
+![Conceptual agent hierarchy showing role-scoped delegation and reporting, with operating and planned elements distinguished.](images/agent-roles-and-boundaries-dark.svg)
 
 ## Why this is a security project
 
@@ -35,7 +35,7 @@ An autonomous agent is, for all practical purposes, a user account that can be s
 
 The goal is not just "agents that work" — it's agents that fail safely.
 
-## ✅ What's done
+## What's done
 
 - Hardened host and an isolated container runtime for the platform
 - Agent hierarchy, role separation and mandates defined and documented
@@ -44,13 +44,13 @@ The goal is not just "agents that work" — it's agents that fail safely.
 - Sanitisation layer designed to strip sensitive data before storage
 - Specification for the first task-level worker agent, deliberately chosen to have zero blast radius and deterministic, testable output
 
-## 🔜 Roadmap
+## Roadmap
 
 - Additional functional pipelines (IT operations, cost tracking, tech watch)
 - Hardening review and threat modelling of the agent-to-agent boundaries
 - Validation of the target agent count against real hardware and cost limits
 
-## 💡 What I've taken away so far
+## What I've taken away so far
 
 - The hardest part isn't getting agents to do things — it's deciding what they're allowed to know. Most failure modes trace back to an agent having  context it never needed.
 - Prompt injection stops being theoretical the moment an agent reads external content on a schedule.
